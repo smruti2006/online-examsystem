@@ -95,6 +95,6 @@ The system **automatically checks answers**, **calculates results**, and **store
 ## 📦 Installation & Setup
 
 ```bash
-git clone https://github.com/your-username/online-exam-system.git
+git clone https://github.com/smruti2006/online-examsystem.git
 cd online-exam-system
 npm install
