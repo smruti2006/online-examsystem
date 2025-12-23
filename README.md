@@ -82,19 +82,34 @@ The system **automatically checks answers**, **calculates results**, and **store
 
 ---
 
-## 🔐 Authentication & Authorization
+## API Endpoints
 
-- JWT based authentication
-- Protected routes
-- Role-based access
-  - Only teachers can create exams
-  - Only students can attempt exams
+### Auth
+- POST /api/auth/signup
+- POST /api/auth/login
 
----
+### Exam
+- POST /api/exam/create (Teacher)
+- GET /api/exam/getexam
+
+### Question
+- POST /api/question/questionsent
+- GET /api/question/getquestion/:examId
+
+### Result
+- POST /api/result/submit
+- GET /api/result/getresult/:examId
+-GET /api/result/getallresult(Teacher)
 
 ## 📦 Installation & Setup
 
-```bash
-git clone https://github.com/smruti2006/online-examsystem.git
-cd online-exam-system
-npm install
+## Installation
+
+1. Clone the repository
+2. Install dependencies
+   npm install
+3. Create a .env file
+4. Add MongoDB URL and JWT secret
+5. Start the server
+   npm run dev
+
