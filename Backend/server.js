@@ -6,6 +6,7 @@ import examroute from "./routes/examroute.js"
 import questionroute from './routes/questionroute.js'
 import Result from "./models/Result.js"
 import result from "./routes/resultroute.js"
+import cors from "cors"
 const app = express()
 dotenv.config()
 const port = process.env.PORT
