@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api.js"
 
 const CreateQuestion = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { examid, duration, totalmarks } = location.state;
 
   const [marks, setMarks] = useState(1);
@@ -49,6 +50,21 @@ const CreateQuestion = () => {
 
     setMarks(marks + 1);
   };
+  const handleUpload=async()=>{
+    const res1=await api.post('/question/questionsent',question)
+    console.log("Saved Question:", question); // later send to backend
+
+    // reset question fields
+    setQuestion({
+      examid: examid,
+      question: "",
+      option: ["", "", "", ""],
+      correctanswer: "",
+    });
+
+    setMarks(marks + 1);
+    navigate("/dashboard/teacherdashboard")
+  }
 
   return (
     <>
@@ -97,7 +113,7 @@ const CreateQuestion = () => {
       {marks < totalmarks ? (
         <button onClick={handleNext}>Next</button>
       ) : (
-        <button>Upload Questions</button>
+        <button onClick={handleUpload}>Upload Questions</button>
       )}
     </>
   );

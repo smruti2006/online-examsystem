@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import api from "../api/api.js";
+import { useNavigate } from "react-router-dom";
 const register = () => {
+  const navigate=useNavigate()
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -22,6 +24,7 @@ const register = () => {
     }
     try {
       const user= await api.post('/auth/signup',data)
+      navigate("/")
     } catch (error) {
       console.log("Server Error")
     }
@@ -45,6 +48,7 @@ const register = () => {
         </select>
         <button type="submit">Register</button>
       </form>
+      <button onClick={()=>{navigate("/")}}>Have account</button>
     </>
   );
 };

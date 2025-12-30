@@ -3,6 +3,7 @@ import examCreate from '../controllers/examCreate.js'
 import authMiddleware from '../middleware/authmiddleware.js'
 import roleMiddleware from '../middleware/rolemiddleware.js'
 import getAllexam from '../controllers/getExam.js'
+import getExamT from '../controllers/getExamT.js'
 
 const router = express.Router()
 router.post('/examcreate',
@@ -11,4 +12,5 @@ router.post('/examcreate',
     examCreate
 )
 router.get('/getexam',getAllexam)
+router.get('/getexamteacher',authMiddleware,getExamT)
 export default router

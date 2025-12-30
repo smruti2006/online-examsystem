@@ -58,6 +58,7 @@ const login = () => {
         ></input>
         <button type="submit">Login</button>
       </form>
+      <button onClick={()=>{navigate("/register")}}>Not Register</button>
     </>
   );
 };

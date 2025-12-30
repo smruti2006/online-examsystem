@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const teacherdashboard = () => {
+  const navigate=useNavigate()
   return (
     <>
-    <div>Teacher Dashboard</div>
+      <button onClick={()=>{navigate("/exam/examcreate")}}>Create Exam</button>
     </>
   )
 }

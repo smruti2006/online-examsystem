@@ -32,6 +32,7 @@ const App = () => {
             element={<StudentDashboard />}
           />
         </Route>
+        <Route path="/exam" element={<Exam/>}/>
         <Route path="*" element={<Pagenotfound />} />
       </Routes>
     </>
